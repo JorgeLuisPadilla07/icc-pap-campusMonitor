@@ -4,6 +4,7 @@
 package pap;
 
 import pap.modelo.Lectura;
+import pap.modelo.Reporte;
 
 public class App {
     public String getGreeting() {
@@ -19,6 +20,7 @@ public class App {
         Lectura<Double> temperatura = new Lectura<>("S01", 22.5, "°C");
         Lectura<Integer> ocupacion = new Lectura<>("S02", 18, "Personas");
 
+
         System.out.println("Lecturas de CampusMonitor");
 
         System.out.println("Original: " + temperatura.getIdSensor() + " | " + temperatura.getValor() + " | " + temperatura.getUnidad());
@@ -28,6 +30,10 @@ public class App {
         System.out.println("Original: " + ocupacion.getIdSensor() + " | " + ocupacion.getValor() + " | " + ocupacion.getUnidad());
         Lectura<String> ocupacionTexto = ocupacion.transformar(c -> c + " personas", "Texto");
         System.out.println("Transformada: "+ ocupacionTexto.getIdSensor() + " | " + ocupacionTexto.getValor() + " | unidad:" + ocupacionTexto.getUnidad());
+
+        System.out.println("De double a reporte:");
+        Lectura<Reporte> reporte = temperatura.transformar(c -> new Reporte(temperatura.getIdSensor(), temperatura.getValor(), temperatura.getUnidad()), "Reporte");
+        System.out.println("Reporte: " + reporte.getValor());
     }
 
     private static void runLectura() {
@@ -36,8 +42,8 @@ public class App {
         Lectura<Integer> lectura1 = new Lectura<>("S02", 18, "Personas");
 
         System.out.println("Lecturas de CampusMonitor");
-        System.out.println(temperatura.getIdSensor() + " | " + temperatura.getValor() + " " + temperatura.getUnidad());
-        System.out.println(lectura1.getIdSensor() + " | " + lectura1.getValor() + " " + lectura1.getUnidad());
+        System.out.println(temperatura.getIdSensor() + " | " + temperatura.getValor() + " | " + temperatura.getUnidad());
+        System.out.println(lectura1.getIdSensor() + " | " + lectura1.getValor() + " | " + lectura1.getUnidad());
 
         System.out.println("Valores recuperados sin casting:");
         System.out.println("Temperatura: " + temperatura.getValor());
