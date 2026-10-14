@@ -12,7 +12,7 @@ public class App {
 
     public static void main(String[] args) {
         //runLectura(); //PC1.1.a
-        runTransformaciones();
+        runTransformaciones(); //PC1.1.b
     }
 
     private static void runTransformaciones() {
