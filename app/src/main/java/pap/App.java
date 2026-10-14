@@ -27,7 +27,7 @@ public class App {
 
         System.out.println("Original: " + ocupacion.getIdSensor() + " | " + ocupacion.getValor() + " | " + ocupacion.getUnidad());
         Lectura<String> ocupacionTexto = ocupacion.transformar(c -> c + " personas", "Texto");
-        System.out.println("Transformada: "+ ocupacionTexto.getIdSensor() + " | " + ocupacionTexto.getValor() + " | " + ocupacionTexto.getUnidad());
+        System.out.println("Transformada: "+ ocupacionTexto.getIdSensor() + " | " + ocupacionTexto.getValor() + " | unidad:" + ocupacionTexto.getUnidad());
     }
 
     private static void runLectura() {
