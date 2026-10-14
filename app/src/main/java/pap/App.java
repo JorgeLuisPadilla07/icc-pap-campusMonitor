@@ -11,7 +11,23 @@ public class App {
     }
 
     public static void main(String[] args) {
-        runLectura();
+        //runLectura(); //PC1.1.a
+        runTransformaciones();
+    }
+
+    private static void runTransformaciones() {
+        Lectura<Double> temperatura = new Lectura<>("S01", 22.5, "°C");
+        Lectura<Integer> ocupacion = new Lectura<>("S02", 18, "Personas");
+
+        System.out.println("Lecturas de CampusMonitor");
+
+        System.out.println("Original: " + temperatura.getIdSensor() + " | " + temperatura.getValor() + " | " + temperatura.getUnidad());
+        Lectura<Double> fahrenheit = temperatura.transformar(c -> c * 9 / 5 + 32, "°F");
+        System.out.println("Transformada: "+ fahrenheit.getIdSensor() + " | " + fahrenheit.getValor() + " | " + fahrenheit.getUnidad());
+
+        System.out.println("Original: " + ocupacion.getIdSensor() + " | " + ocupacion.getValor() + " | " + ocupacion.getUnidad());
+        Lectura<String> ocupacionTexto = ocupacion.transformar(c -> c + " personas", "Texto");
+        System.out.println("Transformada: "+ ocupacionTexto.getIdSensor() + " | " + ocupacionTexto.getValor() + " | " + ocupacionTexto.getUnidad());
     }
 
     private static void runLectura() {

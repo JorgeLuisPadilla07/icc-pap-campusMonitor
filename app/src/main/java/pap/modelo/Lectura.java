@@ -1,4 +1,5 @@
 package pap.modelo;
+import java.util.function.Function;
 
 public class Lectura<T> {
     private String idSensor;
@@ -21,5 +22,10 @@ public class Lectura<T> {
 
     public String getUnidad() {
         return unidad;
+    }
+
+    public <R> Lectura<R> transformar(Function<T, R> conversor, String nuevaUnidad) {
+        R nuevoValor = conversor.apply(valor);
+        return new Lectura<>(idSensor, nuevoValor, nuevaUnidad);
     }
 }

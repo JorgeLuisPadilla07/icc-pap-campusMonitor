@@ -9,6 +9,6 @@ T es un tipo de dato generico y al ser generico este permite darle diferentes ti
 Qué agregaste en App.java.
 Lo unico que se añadio fue el public static main y adentro un run de lectura, tambien los sout para que se muestren los valores ya puestos.
 
-2. Ejecucion correctas
+2. Ejecucion correctas:
 
-![alt text](../assets/image.png)
+![alt text](../assets/imagen.png)
